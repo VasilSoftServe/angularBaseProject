@@ -1,6 +1,0 @@
-.idea
-node_modules
-bower_components
-app/vendor
-app/dist
-app/.tmp
