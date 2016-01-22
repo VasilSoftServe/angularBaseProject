@@ -3,34 +3,39 @@
 
     angular
         .module('app')
-        .factory('todos', service);
-
-    service.$inject = ['$http'];
+        .factory('todos', service); 
  
-    var id =1
-
-    var todos = {
-        id:id,
-        name: name,
-        addList: []
-    }
-
-    function service($http) {
-       
+    var id =1,
+        listTodos = [],
+        todos = [];
+        
+    service.$inject = ['$http'];
+    function service($http) {       
         return {
-            getTodoList: listTodos
+            getTodoList: listTodos,
+            addList: addListTodos
         };
 
-        function isDuplicate(name){
-           _.some(todos, function () {
-               return todos.name = name;
-           })
+    function addListTodos (name) {
+            if (isDuplicate(name)) {
+                alert('The list existed!');
+            }else{
+                var todo = {
+                    id: id, 
+                    name: name, 
+                    todos: todos
+                };
+
+                listTodos.push(todo);
+                    alert('The list is create from first time!');
+                    id++;
+            }
         }
 
-        function listTodos() {
-            isDuplicate();
-            return todos.name;
-        }
-    }
-    
-}(angular));
+    function isDuplicate(name){
+          return _.some(listTodos, function (todo) {
+               return todo.name === name;
+           });
+        }       
+    }    
+})(angular);

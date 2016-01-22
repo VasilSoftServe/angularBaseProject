@@ -11,11 +11,10 @@
         $stateProvider
             .state('todo', {
                 url: '/todo',
-                template: '<todo name="\'Vas\'"></todo>'
+                template: '<todo></todo>'
             });
     }
 
-    var id =1;
 
     function todo() {
         var directive = {
@@ -31,9 +30,11 @@
 
     controller.$inject = ['$scope', 'todos'];
     function controller($scope, todos) {
+        $scope.vm = {};
         $scope.todos = todos;
-        function list() {
-            alert('! Give me ' + todos.getTodoList() + '!');
+        $scope.listTodo = listTodo;
+        function listTodo() {
+            return todos.addList($scope.vm.name);
         }
     }
 }(angular));
