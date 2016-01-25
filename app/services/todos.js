@@ -50,6 +50,8 @@
         for (print in listTodos){
             output += print.name + ': ' + print.todos + ', ';
         }
-        return output;
+        console.log(JSON.stringify(listTodos));
+        // return output;
+        return JSON.stringify(listTodos);
     }    
 })(angular);
