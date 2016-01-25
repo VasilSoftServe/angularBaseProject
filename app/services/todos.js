@@ -5,17 +5,17 @@
         .module('app')
         .factory('todos', service); 
 
-    var minLenghtOfListName =3;
-    var id =1,
+    var minLenghtOfListName = 3;
+    var id = 1,
         listTodos = [],
-        todos = [];     
+        todos = []; 
 
     service.$inject = ['$http'];
     function service($http) {       
         return {
-            getTodoList: listTodos,
+            listTodos: listTodos,
             addList: addListTodos,
-            getListOfTodos: showTodoList
+            editTodoList: editTodoList
         };
 
     function addListTodos (name) {
@@ -25,33 +25,32 @@
 
             if (isDuplicate(name)) {
                 console.log('The list existed!');
-            }else{
+            } else {
+
+                if (listTodos.length > 0) {
+                    var last = _.last(listTodos);
+                    id = last.id + 1;
+                };
+
                 var todo = {
                     id: id, 
                     name: name, 
                     todos: todos
                 };
 
-                listTodos.push(todo);
-                id++;
+                listTodos.push(todo);                
                 console.log('The list is create from the first time!');                
             }
         }
 
-    function isDuplicate(name){
+    function isDuplicate(name) {
           return _.some(listTodos, function (todo) {
                return todo.name === name;
            });
         }       
+    }   
+
+    function editTodoList() {
+        return 
     }
-    
-    function showTodoList (){
-        var output = '';
-        for (print in listTodos){
-            output += print.name + ': ' + print.todos + ', ';
-        }
-        console.log(JSON.stringify(listTodos));
-        // return output;
-        return JSON.stringify(listTodos);
-    }    
 })(angular);

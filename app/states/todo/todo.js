@@ -15,7 +15,6 @@
             });
     }
 
-
     function todo() {
         var directive = {
             templateUrl: './states/todo/todo.html',
@@ -29,8 +28,7 @@
     }    
 
     controller.$inject = ['$scope', 'todos'];
-    function controller($scope, todos) {
-        
+    function controller($scope, todos) {        
 
         $scope.vm = {};
         $scope.todos = todos;
@@ -40,10 +38,9 @@
         function listTodo() {
             return todos.addList($scope.vm.name);
         }
-       
+
         function showTodoList(){
-            return console.log('###BEGIN Todo Lists:( '+ todos.getListOfTodos() + ' )###END!');
-        }
-        
+            return todos.listTodos;
+        }        
     }
 }(angular));
