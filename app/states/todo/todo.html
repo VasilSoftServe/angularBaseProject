@@ -4,8 +4,21 @@
 	<title></title>
 </head>
 <body>
-<p>I'm in</p>
-<input type="text" ng-model="vm.name" name="todo" placeholder="Create new todo list"/>
-<button class="btn" ng-click="listTodo()" >Add TODO List</button>
+	<div id="todo">
+		<h1>SIMPLE TODO LISTS</h1>
+	<!-- 	<ul>
+			<li ng-repeat="todo in todos">Todo {{todo.name}}
+			</li>
+		</ul> -->
+		<p>Todo list: {{todos.getListOfTodos()}}</p>
+		<div class="row">			
+				<input type="text" ng-model="vm.name" name="todo" placeholder="Create new todo list"/>	
+			</div>
+		<div class="row">					
+			<button class="btn" ng-click="listTodo()" >
+				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add TODO List
+			</button>
+		</div>
+	</div>
 </body>
 </html>

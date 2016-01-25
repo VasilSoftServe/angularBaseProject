@@ -30,11 +30,20 @@
 
     controller.$inject = ['$scope', 'todos'];
     function controller($scope, todos) {
+        
+
         $scope.vm = {};
         $scope.todos = todos;
         $scope.listTodo = listTodo;
+        $scope.showTodoList = showTodoList;
+
         function listTodo() {
             return todos.addList($scope.vm.name);
         }
+       
+        function showTodoList(){
+            return console.log('###BEGIN Todo Lists:( '+ todos.getListOfTodos() + ' )###END!');
+        }
+        
     }
 }(angular));
