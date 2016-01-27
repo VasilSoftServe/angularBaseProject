@@ -35,13 +35,13 @@
                     idTodos = last.id + 1;
                 }
 
-                var todoList = {
+                var todo = {
                     id: idTodos, 
                     name: name, 
                     todos: todos
                 };
 
-                listTodos.push(todoList);                
+                listTodos.push(todo);                
                 console.log('The list is create from the first time!');                
             }
         }
@@ -55,9 +55,9 @@
     }
 
     // Add item list
-    function addItem(idItem, name){
-        var itemList = _.find(listTodos, function(item) {
-            return item.id === idItem; 
+    function addItem(itemId, name){
+        var itemList = _.find(listTodos, function(items) {
+            return items.id === itemId; 
         });
         if (isDuplicatedItem(itemList, name)) {
                 console.log('The item existed!');
@@ -68,28 +68,28 @@
                     idItem = lastItem.id + 1;
                 }
 
-                var todo = {
+                var item = {
                     id: idItem, 
                     name: name
                 };
 
-                itemList.todos.push(todo);                
+                itemList.todos.push(item);                
                 console.log('The item is create from the first time!');                
             }
     }
 
 
-    function getItems(idItem){
-        var itemList = _.find(listTodos, function(item) {
-            return item.id === idItem; 
+    function getItems(itemId){
+        var itemList = _.find(listTodos, function(items) {
+            return items.id === itemId; 
         });
         return itemList.todos;
     }
 
     // Check if item is duplicated
-    function isDuplicatedItem(itemList, itemName) { 
+    function isDuplicatedItem(itemList, name) { 
         return _.some(itemList.todos, function(item) { 
-            return item.name === itemName; 
+            return item.name === name;
         });
     }
 })(angular);

@@ -30,6 +30,7 @@
         }
         
         function listAllItems() {
+            console.log("List items: " + todos.getItems($scope.data.id));            
             return todos.getItems($scope.data.id);
         }
     }
