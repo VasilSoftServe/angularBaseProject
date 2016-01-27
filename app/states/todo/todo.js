@@ -32,14 +32,14 @@
 
         $scope.vm = {};
         $scope.todos = todos;
-        $scope.listTodo = listTodo;
-        $scope.showTodoList = showTodoList;
+        $scope.addNewTodoList = addNewTodoList;
+        $scope.listAllTodoLists = listAllTodoLists;
 
-        function listTodo() {
+        function addNewTodoList() {
             return todos.addList($scope.vm.name);
         }
 
-        function showTodoList(){
+        function listAllTodoLists(){
             return todos.listTodos;
         }        
     }

@@ -22,12 +22,15 @@
 
         $scope.vm = {};
         $scope.todos = todos;
+        $scope.addNewItem = addNewItem;
+        $scope.listAllItems = listAllItems;
        
-        function data() {
-            return console.log('list: ' +  $scope.data);
+        function addNewItem() {
+            return todos.addItem($scope.data.id, $scope.vm.name);
         }
-        // console.log(todos);
-        // $scope.listTodo = listTodo;
-        // $scope.showTodoList = showTodoList;           
+        
+        function listAllItems() {
+            return todos.getItems($scope.data.id);
+        }
     }
 }(angular));
