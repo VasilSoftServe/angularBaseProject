@@ -8,8 +8,7 @@
     var minLenghtOfListName = 3;
     var idTodos = 1,
         idItem = 1,
-        listTodos = [],
-        todos = []; 
+        listTodos = []; 
 
     service.$inject = ['$http'];
     function service($http) {       
@@ -17,14 +16,15 @@
             listTodos: listTodos,
             addList: addListTodos,
             addItem: addItem,
-            getItems: getItems
+            getItems: getItems,
+            //deteleItem: deteleItem
         };
 
     // Add todo list
     function addListTodos (name) {
-            if (_.size(name) <= minLenghtOfListName ){
-                return console.log('This list has too short name!!!');                
-            }
+            // if (_.size(name) <= minLenghtOfListName ){
+            //     return console.log('This list has too short name!!!');                
+            // }
 
             if (isDuplicate(name)) {
                 console.log('The list existed!');
@@ -38,7 +38,7 @@
                 var todo = {
                     id: idTodos, 
                     name: name, 
-                    todos: todos
+                    todos: []
                 };
 
                 listTodos.push(todo);                
@@ -55,7 +55,7 @@
     }
 
     // Add item list
-    function addItem(itemId, name){
+    function addItem(itemId, name) {
         var itemList = _.find(listTodos, function(items) {
             return items.id === itemId; 
         });
@@ -90,6 +90,13 @@
     function isDuplicatedItem(itemList, name) { 
         return _.some(itemList.todos, function(item) { 
             return item.name === name;
+        });
+    }
+
+    // Delete item by id 
+    function deleteItem(itemId) {
+        return _.remove(itemList.todos, function(item) {
+            return item.id === itemId;
         });
     }
 })(angular);

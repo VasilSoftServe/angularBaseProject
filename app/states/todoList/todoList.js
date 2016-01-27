@@ -15,7 +15,7 @@
             }
         };
         return directive;
-    }    
+    }
 
     controller.$inject = ['$scope', 'todos'];
     function controller($scope, todos) {        
@@ -24,14 +24,19 @@
         $scope.todos = todos;
         $scope.addNewItem = addNewItem;
         $scope.listAllItems = listAllItems;
-       
-        function addNewItem() {
-            return todos.addItem($scope.data.id, $scope.vm.name);
-        }
+        $scope.hideBtn = true;
         
-        function listAllItems() {
-            console.log("List items: " + todos.getItems($scope.data.id));            
-            return todos.getItems($scope.data.id);
+        function addNewItem() {
+            todos.addItem($scope.data.id, $scope.vm.name);
+            $scope.vm.name = '';
         }
+
+        function listAllItems() {          
+            return $scope.data.todos;
+        }
+
+        // function deteleItem() {
+        //     return 
+        // }
     }
 }(angular));

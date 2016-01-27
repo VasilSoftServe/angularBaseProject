@@ -27,8 +27,8 @@
         return directive;
     }    
 
-    controller.$inject = ['$scope', 'todos'];
-    function controller($scope, todos) {        
+    controller.$inject = ['$scope', 'todos', 'prompt'];
+    function controller($scope, todos, prompt) {        
 
         $scope.vm = {};
         $scope.todos = todos;
@@ -36,7 +36,21 @@
         $scope.listAllTodoLists = listAllTodoLists;
 
         function addNewTodoList() {
-            return todos.addList($scope.vm.name);
+           // todos.addList($scope.vm.name);
+           //  $scope.vm.name = '';
+              //ask the user for a string
+            prompt({
+                title: 'Give me a name',
+                message: 'What would you like to name it?',
+                input: true,
+                label: 'Name',
+                value: ''
+            }).then(function(name) {
+            //the promise is resolved with the user input
+            todos.addList(name);
+            // $scope.vm.name = '';
+            // console.log('and the name is ', name);
+            }); 
         }
 
         function listAllTodoLists(){
