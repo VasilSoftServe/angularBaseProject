@@ -1,7 +1,31 @@
-#showIn{
+.show-row button {
 	display:none;
 }
 
-#showOut:hover>#showIn{
-	display:block;
+.show-row:hover button {
+	display:inline;
+	background-color: red;
+}
+
+.strike{
+	text-decoration: line-through;
+}
+
+#addMenu{
+	background-color: gray;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	padding-right: 7px;
+}
+
+#plus{
+	background-color: rgba(0,0,0,0) !important;
+	color: green;
+	border: none !important;
+	font-size: 25px;
+}
+
+#itemList{
+	margin: 0px;
+	padding-left: 13px;
 }

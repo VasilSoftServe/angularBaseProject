@@ -1,11 +1,12 @@
-<div class="list-group">	
-	<table class="table table-hover" class="list-group-item">  	
+<div class="list-group" id="itemList">	
+	<table class="table" class="list-group-item">  	
 		<tr>
-			<td width="10%"><input type="checkbox" name="box"></td>
+			<td width="10%">
+				<input type="checkbox" ng-model="deleted"  name="box"></td>
 			<td width="80%">
-				<b><h3 ng-if="!vm.editState">{{data.name}}</h3></b>				
-				<input type="text" ng-model="data.name" ng-if="vm.editState" />
-			<td width="10%"> 
+				<h3 ng-if="!vm.editState" ng-class="{strike: deleted}">{{data.name}}</h3>				
+				<input type="text" ng-model="data.name" ng-if="vm.editState" />				
+			<td width="10%">
 				<button  ng-if="vm.editState" ng-click="saveItem()">
 					<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
 				</button> 			 
