@@ -12,7 +12,7 @@
             controller: controller,
             scope: {
                 data: '=',
-                itemList: '='
+                list: '='
             }
         };
         return directive;
@@ -28,8 +28,7 @@
         $scope.deleteItem = deleteItem;
 
         function deleteItem() {
-            todos.deleteItem($scope.itemList, $scope.data.id);
-            console.log(todos.deleteItem($scope.itemList, $scope.data.id));
+            todos.deleteItem($scope.list, $scope.data.id);
         }
 
         function editItem() {

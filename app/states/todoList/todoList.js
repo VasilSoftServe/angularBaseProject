@@ -11,7 +11,8 @@
             restrict: 'E',
             controller: controller,
             scope: {
-                data: '='
+                data: '=',
+                list: '='
             }
         };
         return directive;
@@ -25,9 +26,11 @@
         $scope.vm.editMode = false;
         $scope.addNewItem = addNewItem;
         $scope.listAllItems = listAllItems;
-        // $scope.hideBtn = true;
+
         $scope.editTodo = editTodo;        
         $scope.saveTodo = saveTodo;
+
+        $scope.deleteTodo = deleteTodo;
         
         function addNewItem() {
             todos.addItem($scope.data.id, $scope.vm.name);
@@ -45,5 +48,10 @@
         function saveTodo() {
             $scope.vm.editMode = false;
         }
+
+        function deleteTodo(){
+            listTodos.deleteTodo($scope.list, $scope.data.id);
+        }
+
     }
 }(angular));

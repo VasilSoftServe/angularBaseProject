@@ -15,8 +15,9 @@
         return {
             listTodos: listTodos,
             addList: addListTodos,
-            addItem: addItem
-            //deteleItem: deteleItem
+            addItem: addItem,
+            deleteItem: deleteItem,
+            deleteTodo: deleteTodo
         };
 
     // Add todo list
@@ -88,8 +89,15 @@
     function deleteItem(itemList, itemId) {
         var index = _.findIndex(itemList, function(item) { 
                 return item.id === itemId; 
-            });
-        
-            itemList.splice(index, 1);
+            });        
+           itemList.splice(index, 1);
+    }
+
+     // Delete item by id 
+    function deleteTodo(todoList, todoId) {
+        var index = _.findIndex(todoList, function(todo) { 
+                return todo.id === todoId; 
+            });        
+           todoList.splice(index, 1);
     }
 })(angular);
