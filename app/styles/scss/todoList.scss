@@ -1,7 +1,7 @@
-.showMe{
+#showIn{
 	display:none;
 }
 
-.showHim:hover .showMe{
+#showOut:hover>#showIn{
 	display:block;
 }

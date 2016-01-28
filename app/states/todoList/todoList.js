@@ -50,7 +50,7 @@
         }
 
         function deleteTodo(){
-            listTodos.deleteTodo($scope.list, $scope.data.id);
+            todos.deleteTodo($scope.list, $scope.data.id);
         }
 
     }
