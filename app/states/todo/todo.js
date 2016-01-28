@@ -36,8 +36,6 @@
         $scope.listAllTodoLists = listAllTodoLists;
 
         function addNewTodoList() {
-           // todos.addList($scope.vm.name);
-           //  $scope.vm.name = '';
               //ask the user for a string
             prompt({
                 title: 'Give me a name',
@@ -48,8 +46,7 @@
             }).then(function(name) {
             //the promise is resolved with the user input
             todos.addList(name);
-            // $scope.vm.name = '';
-            // console.log('and the name is ', name);
+            name = '';
             }); 
         }
 

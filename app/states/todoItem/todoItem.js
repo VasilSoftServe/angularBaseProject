@@ -11,7 +11,8 @@
             restrict: 'E',
             controller: controller,
             scope: {
-                data: '='
+                data: '=',
+                itemList: '='
             }
         };
         return directive;
@@ -24,6 +25,13 @@
         $scope.vm.editState = false;
         $scope.editItem = editItem;
         $scope.saveItem = saveItem;
+        $scope.deleteItem = deleteItem;
+
+        function deleteItem() {
+            todos.deleteItem($scope.itemList, $scope.data.id);
+            console.log(todos.deleteItem($scope.itemList, $scope.data.id));
+        }
+
         function editItem() {
             $scope.vm.editState = true;
         }

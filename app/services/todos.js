@@ -15,8 +15,7 @@
         return {
             listTodos: listTodos,
             addList: addListTodos,
-            addItem: addItem,
-            getItems: getItems,
+            addItem: addItem
             //deteleItem: deteleItem
         };
 
@@ -78,14 +77,6 @@
             }
     }
 
-
-    function getItems(itemId){
-        var itemList = _.find(listTodos, function(items) {
-            return items.id === itemId; 
-        });
-        return itemList.todos;
-    }
-
     // Check if item is duplicated
     function isDuplicatedItem(itemList, name) { 
         return _.some(itemList.todos, function(item) { 
@@ -94,9 +85,11 @@
     }
 
     // Delete item by id 
-    function deleteItem(itemId) {
-        return _.remove(itemList.todos, function(item) {
-            return item.id === itemId;
-        });
+    function deleteItem(itemList, itemId) {
+        var index = _.findIndex(itemList, function(item) { 
+                return item.id === itemId; 
+            });
+        
+            itemList.splice(index, 1);
     }
 })(angular);

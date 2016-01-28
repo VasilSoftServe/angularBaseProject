@@ -22,9 +22,12 @@
 
         $scope.vm = {};
         $scope.todos = todos;
+        $scope.vm.editMode = false;
         $scope.addNewItem = addNewItem;
         $scope.listAllItems = listAllItems;
-        $scope.hideBtn = true;
+        // $scope.hideBtn = true;
+        $scope.editTodo = editTodo;        
+        $scope.saveTodo = saveTodo;
         
         function addNewItem() {
             todos.addItem($scope.data.id, $scope.vm.name);
@@ -35,8 +38,12 @@
             return $scope.data.todos;
         }
 
-        // function deteleItem() {
-        //     return 
-        // }
+        function editTodo() {
+            $scope.vm.editMode = true;
+        }
+
+        function saveTodo() {
+            $scope.vm.editMode = false;
+        }
     }
 }(angular));

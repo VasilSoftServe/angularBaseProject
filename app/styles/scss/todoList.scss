@@ -1,7 +1,7 @@
-.container{
-	background-color: gray;
-	
+.showMe{
+	display:none;
 }
-.container{
-	float:left;
+
+.showHim:hover .showMe{
+	display:block;
 }
