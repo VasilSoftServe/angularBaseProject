@@ -1,20 +1,25 @@
-<div class="row">	
-<div class="col-sm-2 col-md-2"></div>	
-	<div id="form" class="col-sm-8">
-		<b><h1>SIMPLE TODO LISTS</h1></b>
-		<form >
+<div class="container" > 
+	<div class="row" id="header">	
+		<div class="col-sm-2 col-md-2"></div>	
+		<div id="form" class="col-sm-8" height="auto">
 			<div>
-				<todo-list data="list" ng-repeat="list in listAllTodoLists()"></todo-list>
+				<h1><strong>SIMPLE TODO LISTS</strong></h1>
 			</div>
-			<div class="row">
-				<b><h4>				
-				<button type="submit" id="todoButton" ng-click="addNewTodoList()" >
-					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add TODO List
-				</button>
-				</h4></b>	
-			</div>
-		</form>	
-	</div>	
+			<form>	
+				<div>
+					<todo-list data="list" ng-repeat="list in listAllTodoLists()"></todo-list>
+				</div>
+				<div >								
+					<h4>
+						<strong>								
+							<button type="submit" id="todo-btn" ng-click="addNewTodoList()" >
+								<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add TODO List
+							</button>						
+						</strong>
+					</h4>						
+				</div>
+			</form>
+		</div>
+		<div class="col-sm-2 col-md-2"></div>	
 	</div>
-	<div class="col-sm-2 col-md-2"></div>	
 </div>

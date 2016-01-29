@@ -1,27 +1,26 @@
-todo-list{
-	text-align: center;
-	padding: 25px;
-}
+#grad {
+	height: 1200px;
+	width: 1700px;
+    background: gray; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(gray, orange); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(gray, orange); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(gray, orange); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(gray, orange); /* Standard syntax */
+} 
 #form{
 	text-align: center;
 }
-#todo h1{
+
+#header{
 	text-align: center;
 	padding-top: 25px;
 }
-.row{
-	text-align: center;
-	padding-top: 25px;
-}
-.row input{
-	text-align: center;
-	padding: 5px;
-}
-#todoButton{
-	
+
+#todo-btn{	
 	background-color: #4d7db8;
 	color: white;
 	font-weight: bold;	
 	border-radius: 5px;
-	padding: 2px;	
+	padding: 7px;	
+	border-color: blue;
 }

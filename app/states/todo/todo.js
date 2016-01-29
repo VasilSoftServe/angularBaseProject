@@ -10,7 +10,7 @@
     function config($stateProvider) {
         $stateProvider
             .state('todo', {
-                url: '/todo',
+                url: '/',
                 template: '<todo></todo>'
             });
     }

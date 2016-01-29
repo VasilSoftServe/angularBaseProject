@@ -16,5 +16,5 @@
 - header (+ syling) - 2h
 - add todo - update todos service with fn addTodo(listId, todoName), fn isDuplicateTodo(listId, todoName) - 1h // 2h.
 - add todo - html and css - 1h // 1h
-- add todo - integration - 1h
+- add todo - integration - 1h // 2h
 ### Create todo component

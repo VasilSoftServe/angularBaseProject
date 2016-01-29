@@ -26,7 +26,6 @@
         $scope.vm.editMode = false;
         $scope.addNewItem = addNewItem;
         $scope.listAllItems = listAllItems;
-        $scope.deleted = true;
 
         $scope.editTodo = editTodo;        
         $scope.saveTodo = saveTodo;

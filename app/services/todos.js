@@ -5,7 +5,7 @@
         .module('app')
         .factory('todos', service); 
 
-    var minLenghtOfListName = 3;
+    var minLenghtOfItemName = 0;
     var idTodos = 1,
         idItem = 1,
         listTodos = []; 
@@ -22,14 +22,9 @@
 
     // Add todo list
     function addListTodos (name) {
-            // if (_.size(name) <= minLenghtOfListName ){
-            //     return console.log('This list has too short name!!!');                
-            // }
-
             if (isDuplicate(name)) {
-                console.log('The list existed!');
+                alert('The list already exists!');
             } else {
-
                 if (listTodos.length > 0) {
                     var last = _.last(listTodos);
                     idTodos = last.id + 1;
@@ -56,13 +51,15 @@
 
     // Add item list
     function addItem(itemId, name) {
+        if (_.size(name) === minLenghtOfItemName ){
+                return alert('This list name is empty!!!');                
+            }
         var itemList = _.find(listTodos, function(items) {
             return items.id === itemId; 
         });
         if (isDuplicatedItem(itemList, name)) {
-                console.log('The item existed!');
-            } else {
-                
+                alert('The item already exists!');
+            } else {                
                 if (itemList && itemList.todos.length > 0) {
                     var lastItem = _.last(itemList.todos);
                     idItem = lastItem.id + 1;
